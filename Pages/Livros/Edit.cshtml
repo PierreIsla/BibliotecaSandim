@@ -1,0 +1,51 @@
+@page
+@model BibliotecaSandim.Pages.Livros.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Livro</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Livro.LivroID" />
+            <div class="form-group">
+<span class="text-danger">*</span>
+                <label asp-for="Livro.Titulo" class="control-label"></label>
+                <input asp-for="Livro.Titulo" class="form-control" aria-required="true"/>
+                <span asp-validation-for="Livro.Titulo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Livro.ISBN" class="control-label"></label>
+                <input asp-for="Livro.ISBN" class="form-control" />
+                <span asp-validation-for="Livro.ISBN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Livro.AnoPublicacao" class="control-label"></label>
+                <input asp-for="Livro.AnoPublicacao" class="form-control" />
+                <span asp-validation-for="Livro.AnoPublicacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Livro.AutorID" class="control-label"></label>
+                <select asp-for="Livro.AutorID" class="form-control" asp-items="ViewBag.AutorID" ></select>
+                <span asp-validation-for="Livro.AutorID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,100 @@
+@page
+@model BibliotecaSandim.Pages.Emprestimos.IndexModel
+
+@{
+    ViewData["Title"] = "Empréstimos";
+}
+
+<div class="container mt-4">
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div>
+                    <h2 class="mb-0">Empréstimos</h2>
+                    <small class="text-muted">
+                        Gestão de empréstimos de livros da biblioteca
+                    </small>
+                </div>
+
+                <a asp-page="Create" class="btn btn-success">
+                    + Criar Empréstimo
+                </a>
+            </div>
+
+            <table class="table table-striped table-hover align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Data de Empréstimo</th>
+                        <th>Data de Devolução</th>
+                        <th>Livro</th>
+                        <th>Membro</th>
+                        <th class="text-center">Estado</th>
+                        <th class="text-center">Ações</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                @foreach (var item in Model.Emprestimo)
+                {
+                    <tr>
+                        <td>
+                            @item.DataEmprestimo.ToString("dd/MM/yyyy")
+                        </td>
+
+                        <td>
+                            @(item.DataDevolucao != null
+                                ? item.DataDevolucao.Value.ToString("dd/MM/yyyy")
+                                : "-")
+                        </td>
+
+                        <td>
+                            @item.Livro.Titulo
+                        </td>
+
+                        <td>
+                            <small class="text-secondary">
+                                @item.Membro.Email
+                            </small>
+                        </td>
+
+                        <td class="text-center">
+                            @if (item.DataDevolucao < DateTime.Now)
+                            {
+                                <span class="badge bg-danger">Atrasado</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-success">Dentro do prazo</span>
+                            }
+                        </td>
+
+                        <td class="text-center">
+                            <a asp-page="./Edit"
+                               asp-route-id="@item.EmprestimoID"
+                               class="btn btn-sm btn-warning">
+                                Editar
+                            </a>
+
+                            <a asp-page="./Details"
+                               asp-route-id="@item.EmprestimoID"
+                               class="btn btn-sm btn-info text-white">
+                                Detalhes
+                            </a>
+
+                            <a asp-page="./Delete"
+                               asp-route-id="@item.EmprestimoID"
+                               class="btn btn-sm btn-danger">
+                                Eliminar
+                            </a>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>

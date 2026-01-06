@@ -1,0 +1,46 @@
+@page
+@model BibliotecaSandim.Pages.Autores.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Autor</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Autor.AutorID" />
+            <div class="form-group">
+<span class="text-danger">*</span>
+                <label asp-for="Autor.Nome" class="control-label"></label>
+                <input asp-for="Autor.Nome" class="form-control" aria-required="true"/>
+                <span asp-validation-for="Autor.Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Autor.Nacionalidade" class="control-label"></label>
+                <input asp-for="Autor.Nacionalidade" class="form-control" />
+                <span asp-validation-for="Autor.Nacionalidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Autor.DataNascimento" class="control-label"></label>
+                <input asp-for="Autor.DataNascimento" class="form-control" />
+                <span asp-validation-for="Autor.DataNascimento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

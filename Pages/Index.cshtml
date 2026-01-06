@@ -1,0 +1,272 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center mb-5">
+    <h1 class="display-4 fw-bold text-primary">Bem-vindo à BibliotecaSandim</h1>
+    <p class="lead text-muted">O seu portal digital para a gestão completa de biblioteca</p>
+</div>
+
+<!-- Hero Section -->
+<div class="row mb-5 p-4 bg-light rounded-3 shadow-sm">
+    <div class="col-lg-6 d-flex align-items-center">
+        <div>
+            <h2 class="fw-bold mb-3">📚 Descubra um Mundo de Conhecimento</h2>
+            <p class="fs-5 text-muted mb-4">
+                Explore o nosso vasto acervo de livros, gerencie empréstimos e conecte-se com outros leitores apaixonados.
+            </p>
+            <div class="d-grid gap-2 d-md-flex">
+                <a asp-page="/Livros/Index" class="btn btn-primary btn-lg px-4">Ver Livros</a>
+                <a asp-page="/Emprestimos/Create" class="btn btn-outline-secondary btn-lg px-4">Novo Empréstimo</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 text-center">
+        <div class="p-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+        </div>
+    </div>
+</div>
+
+<!-- Features Grid -->
+<div class="row g-4 mb-5">
+    <div class="col-md-3">
+        <div class="card h-100 border-0 shadow-sm hover-lift">
+            <div class="card-body text-center p-4">
+                <div class="mb-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#0d6efd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                    </svg>
+                </div>
+                <h5 class="card-title fw-bold">Acervo Digital</h5>
+                <p class="card-text text-muted">Milhares de livros organizados e catalogados</p>
+                <a asp-page="/Livros/Index" class="btn btn-sm btn-outline-primary mt-2">Explorar</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card h-100 border-0 shadow-sm hover-lift">
+            <div class="card-body text-center p-4">
+                <div class="mb-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#198754" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                </div>
+                <h5 class="card-title fw-bold">Autores</h5>
+                <p class="card-text text-muted">Conheça os autores do nosso catálogo</p>
+                <a asp-page="/Autores/Index" class="btn btn-sm btn-outline-success mt-2">Ver Autores</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card h-100 border-0 shadow-sm hover-lift">
+            <div class="card-body text-center p-4">
+                <div class="mb-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#0dcaf0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </div>
+                <h5 class="card-title fw-bold">Membros</h5>
+                <p class="card-text text-muted">Gerencie os membros da biblioteca</p>
+                <a asp-page="/Membros/Index" class="btn btn-sm btn-outline-info mt-2">Ver Membros</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card h-100 border-0 shadow-sm hover-lift">
+            <div class="card-body text-center p-4">
+                <div class="mb-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#ffc107" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                    </svg>
+                </div>
+                <h5 class="card-title fw-bold">Empréstimos</h5>
+                <p class="card-text text-muted">Controle de empréstimos e devoluções</p>
+                <a asp-page="/Emprestimos/Index" class="btn btn-sm btn-outline-warning mt-2">Gerir</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Stats Section -->
+<div class="row g-4 mb-5">
+    <div class="col-12">
+        <div class="card border-0 shadow-sm bg-primary text-white">
+            <div class="card-body p-5">
+                <h3 class="text-center mb-4 fw-bold">🎯 Estatísticas da Biblioteca</h3>
+                <div class="row text-center">
+                    <div class="col-md-3">
+                        <div class="p-3">
+                            <h2 class="display-4 fw-bold">500+</h2>
+                            <p class="fs-5 mb-0">Livros</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="p-3">
+                            <h2 class="display-4 fw-bold">100+</h2>
+                            <p class="fs-5 mb-0">Autores</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="p-3">
+                            <h2 class="display-4 fw-bold">250+</h2>
+                            <p class="fs-5 mb-0">Membros Ativos</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="p-3">
+                            <h2 class="display-4 fw-bold">50+</h2>
+                            <p class="fs-5 mb-0">Empréstimos/Mês</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Actions -->
+<div class="row mb-5">
+    <div class="col-12">
+        <div class="card border-0 shadow-sm">
+            <div class="card-body p-4">
+                <h3 class="card-title fw-bold mb-4">⚡ Ações Rápidas</h3>
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <a asp-page="/Livros/Create" class="text-decoration-none">
+                            <div class="d-flex align-items-center p-3 bg-light rounded hover-shadow">
+                                <div class="me-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0d6efd" stroke-width="2">
+                                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0 fw-bold text-primary">Adicionar Livro</h6>
+                                    <small class="text-muted">Cadastrar novo livro no acervo</small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a asp-page="/Membros/Create" class="text-decoration-none">
+                            <div class="d-flex align-items-center p-3 bg-light rounded hover-shadow">
+                                <div class="me-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#198754" stroke-width="2">
+                                        <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="8.5" cy="7" r="4"></circle>
+                                        <line x1="20" y1="8" x2="20" y2="14"></line>
+                                        <line x1="23" y1="11" x2="17" y2="11"></line>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0 fw-bold text-success">Registar Membro</h6>
+                                    <small class="text-muted">Novo membro da biblioteca</small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a asp-page="/Emprestimos/Create" class="text-decoration-none">
+                            <div class="d-flex align-items-center p-3 bg-light rounded hover-shadow">
+                                <div class="me-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ffc107" stroke-width="2">
+                                        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                                        <polyline points="13 2 13 9 20 9"></polyline>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0 fw-bold text-warning">Novo Empréstimo</h6>
+                                    <small class="text-muted">Registar empréstimo de livro</small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Info Section -->
+<div class="row mb-5">
+    <div class="col-md-6 mb-4">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body p-4">
+                <h4 class="card-title fw-bold mb-3">📖 Sobre a Biblioteca</h4>
+                <p class="text-muted">
+                    A BibliotecaSandim é um espaço dedicado ao conhecimento e à cultura. 
+                    Oferecemos um vasto acervo de livros, revistas e materiais digitais para toda a comunidade.
+                </p>
+                <ul class="list-unstyled">
+                    <li class="mb-2">✅ Sistema de empréstimos eficiente</li>
+                    <li class="mb-2">✅ Catálogo digital atualizado</li>
+                    <li class="mb-2">✅ Gestão de membros simplificada</li>
+                    <li class="mb-2">✅ Relatórios e estatísticas detalhadas</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 mb-4">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body p-4">
+                <h4 class="card-title fw-bold mb-3">🕒 Horário de Funcionamento</h4>
+                <table class="table table-borderless">
+                    <tbody>
+                        <tr>
+                            <td class="fw-bold">Segunda a Sexta:</td>
+                            <td class="text-end">09:00 - 18:00</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Sábado:</td>
+                            <td class="text-end">10:00 - 14:00</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Domingo:</td>
+                            <td class="text-end text-muted">Fechado</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr>
+                <h5 class="fw-bold mb-3">📍 Contacto</h5>
+                <p class="mb-2"><strong>Email:</strong> biblioteca@sandim.pt</p>
+                <p class="mb-2"><strong>Telefone:</strong> +351 227 000 000</p>
+                <p class="mb-0"><strong>Morada:</strong> Rua Principal, Sandim, Portugal</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .hover-lift {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .hover-lift:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+    }
+    
+    .hover-shadow {
+        transition: all 0.3s ease;
+    }
+    
+    .hover-shadow:hover {
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transform: translateY(-2px);
+    }
+</style>

@@ -1,0 +1,95 @@
+@page
+@model BibliotecaSandim.Pages.Livros.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalhes do Livro</h1>
+
+<div>
+    <h4>Livro</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Livro.Titulo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Livro.Titulo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Livro.ISBN)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Livro.ISBN)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Livro.AnoPublicacao)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Livro.AnoPublicacao)
+        </dd>
+        <dt class="col-sm-2">
+            Autor
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Livro.Autor.Nome)
+        </dd>
+        
+        <dt class="col-sm-2">
+            Histórico de Empréstimos
+        </dt>
+        <dd class="col-sm-10">
+            @if (Model.Livro.Emprestimos != null && Model.Livro.Emprestimos.Any())
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Membro</th>
+                            <th>Data Empréstimo</th>
+                            <th>Data Devolução</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Livro.Emprestimos.OrderByDescending(e => e.DataEmprestimo))
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Membro.Nome)</td>
+                                <td>@Html.DisplayFor(modelItem => item.DataEmprestimo)</td>
+                                <td>
+                                    @if (item.DataDevolucao.HasValue)
+                                    {
+                                        @Html.DisplayFor(modelItem => item.DataDevolucao)
+                                    }
+                                    else
+                                    {
+                                        <text>-</text>
+                                    }
+                                </td>
+                                <td>
+                                    @if (item.DataDevolucao.HasValue)
+                                    {
+                                        <span class="badge bg-success">Devolvido</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-warning text-dark">Em empréstimo</span>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>Nenhum empréstimo registado.</p>
+            }
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Livro.LivroID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

@@ -1,0 +1,39 @@
+﻿@page
+@model PrivacyModel
+@{
+    ViewData["Title"] = "Contactos";
+}
+
+<h1>Contactos</h1>
+
+<div class="row mt-4">
+    <div class="col-md-6">
+        <h4>BibliotecaSandim</h4>
+
+        <p class="mb-2">
+            <strong>Email:</strong><br />
+            <a href="mailto: bibliotecasandim@gmail.com">
+                bibliotecasandim@gmail.com
+            </a>
+        </p>
+
+        <p class="mb-2">
+            <strong>Morada:</strong><br />
+            Rua dos Cultos<br />
+            Sandim, 4415
+        </p>
+    </div>
+
+    <div class="col-md-6">
+        <h4>Localização</h4>
+        <p class="text-muted">
+            Clica abaixo para abrir no Google Maps.
+        </p>
+
+        <a class="btn btn-outline-primary"
+           href="https://www.google.com/maps/search/Rua+dos+Cultos+Sandim+4415"
+           target="_blank" rel="noopener">
+            Abrir no Google Maps
+        </a>
+    </div>
+</div>

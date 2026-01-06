@@ -1,0 +1,84 @@
+@page
+@model BibliotecaISLA.Pages.Livros.IndexModel
+
+@{
+    ViewData["Title"] = "Livros";
+}
+
+<div class="container mt-4">
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div>
+                    <h2 class="mb-0">Livros</h2>
+                    <small class="text-muted">
+                        Gestão do acervo de livros da biblioteca
+                    </small>
+                </div>
+
+                <a asp-page="Create" class="btn btn-success">
+                    + Criar Livro
+                </a>
+            </div>
+
+            <table class="table table-striped table-hover align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Título</th>
+                        <th>ISBN</th>
+                        <th>Ano de Publicação</th>
+                        <th>Autor</th>
+                        <th class="text-center">Ações</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                @foreach (var item in Model.Livros)
+                {
+                    <tr>
+                        <td>@item.Titulo</td>
+
+                        <td>
+                            <small class="text-secondary">
+                                @item.ISBN
+                            </small>
+                        </td>
+
+                        <td>
+                            @item.AnoPublicacao
+                        </td>
+
+                        <td>
+                            @item.Autor.Nome
+                        </td>
+
+                        <td class="text-center">
+                            <a asp-page="./Edit"
+                               asp-route-id="@item.LivroID"
+                               class="btn btn-sm btn-warning">
+                                Editar
+                            </a>
+
+                            <a asp-page="./Details"
+                               asp-route-id="@item.LivroID"
+                               class="btn btn-sm btn-info text-white">
+                                Detalhes
+                            </a>
+
+                            <a asp-page="./Delete"
+                               asp-route-id="@item.LivroID"
+                               class="btn btn-sm btn-danger">
+                                Eliminar
+                            </a>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
